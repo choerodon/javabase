@@ -1,7 +1,11 @@
-FROM alpine:3.5
+FROM alpine:3.7
 # Install base packages
-RUN apk update && apk add curl bash tree tzdata \
-    && cp -r -f /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
-    && echo -ne "Alpine Linux 3.4 image. (`uname -rsv`)\n" >> /root/.built
-# Define bash as default command
-RUN apk --no-cache add openjdk8-jre ttf-droid
+RUN apk add --no-cache \
+    curl \
+    bash \
+    tree \
+    tzdata \
+    openjdk8-jre \
+    ttf-droid
+# Modify timezone
+RUN cp -rf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime
