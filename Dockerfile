@@ -13,5 +13,17 @@ RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
     echo 'deb-src http://mirrors.aliyun.com/debian-security/ stretch/updates main non-free contrib' >> /etc/apt/sources.list
 # Install base packages
 RUN apt-get update && apt-get install -y \
-        vim locales openssh-client ca-certificates tar gzip net-tools netcat unzip zip bzip2 curl wget \
-	&& rm -rf /var/lib/apt/lists/*
+        vim \
+        tar \
+        zip \
+        gzip \
+        unzip \
+        bzip2 \
+        curl \
+        wget \
+        netcat \
+        net-tools \
+        locales \
+        openssh-client \
+        ca-certificates && \
+     rm -rf /var/lib/apt/lists/*
