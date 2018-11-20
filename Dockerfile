@@ -1,6 +1,8 @@
-FROM openjdk:8u181-jre-slim-stretch
+FROM openjdk:8u181-jdk-slim-stretch
 # Modify timezone
-ENV TZ=Asia/Shanghai
+ENV TZ=Asia/Shanghai \
+    SKYWALKING_VERSION="6.0.0-alpha"
+
 # Add mirror source
 RUN mv /etc/apt/sources.list /etc/apt/sources.list.bak && \
     echo 'deb http://mirrors.aliyun.com/debian stretch main contrib non-free' >> /etc/apt/sources.list && \
@@ -26,4 +28,10 @@ RUN apt-get update && apt-get install -y \
         locales \
         openssh-client \
         ca-certificates && \
-     rm -rf /var/lib/apt/lists/*
+     rm -rf /var/lib/apt/lists/* && \
+     wget -O "apache-skywalking-apm-incubating-${SKYWALKING_VERSION}.tar.gz" \
+        "http://mirrors.tuna.tsinghua.edu.cn/apache/incubator/skywalking/${SKYWALKING_VERSION}/apache-skywalking-apm-incubating-${SKYWALKING_VERSION}.tar.gz" && \
+     curl -fsSL https://www.apache.org/dist/incubator/skywalking/${SKYWALKING_VERSION}/apache-skywalking-apm-incubating-${SKYWALKING_VERSION}.tar.gz.sha512 | sha512sum -c - && \
+     tar zxf "apache-skywalking-apm-incubating-${SKYWALKING_VERSION}.tar.gz" && \
+     mv apache-skywalking-apm-incubating/agent / && \
+     rm -rf apache-skywalking-apm-incubating*
