@@ -6,7 +6,7 @@ ENV TZ=Asia/Shanghai \
 
 # Add mirror source
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
-    sed -i 's http://archive.ubuntu.com http://mirrors.aliyun.com g' /etc/apt/sources.list
+    sed -i 's archive.ubuntu.com mirrors.aliyun.com g' /etc/apt/sources.list
 
 # Install base packages
 RUN apt-get update && apt-get install -y \
