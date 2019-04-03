@@ -1,7 +1,7 @@
 FROM adoptopenjdk/openjdk8-openj9:jdk8u202-b08_openj9-0.12.1
 
-# Modify timezone
-ENV TZ=Asia/Shanghai \
+ENV LANG=C.UTF-8 \
+    TZ=Asia/Shanghai \
     SKYWALKING_VERSION="6.0.0-GA"
 
 # Add mirror source
