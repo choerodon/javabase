@@ -4,7 +4,7 @@ FROM adoptopenjdk/openjdk8-openj9:jdk8u202-b08_openj9-0.12.1
 ENV LANG=C.UTF-8 \
     TZ="Asia/Shanghai" \
     TINI_VERSION="v0.18.0" \
-    SKYWALKING_VERSION="6.1.0"
+    SKYWALKING_VERSION="6.3.0"
 
 # Add mirror source
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak && \
