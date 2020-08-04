@@ -11,4 +11,4 @@ RUN wget -qO "apache-skywalking-apm-${SKYWALKING_VERSION}.tar.gz" \
     rm -rf apache-skywalking-apm* && \
     mv /skywalking/agent/optional-plugins/apm-trace-ignore-plugin-${SKYWALKING_VERSION}.jar /skywalking/agent/plugins && \
     chown -R www-data:www-data /skywalking
-USER www-data
+USER 33
