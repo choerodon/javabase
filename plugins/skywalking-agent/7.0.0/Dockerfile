@@ -1,4 +1,4 @@
-FROM registry.cn-shanghai.aliyuncs.com/c7n/javabase:0.9.0
+FROM busybox:1.32
 
 ENV SKYWALKING_VERSION="7.0.0"
 
