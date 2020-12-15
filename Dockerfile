@@ -1,5 +1,5 @@
 # ref: https://github.com/AdoptOpenJDK/openjdk-docker/blob/9b88ff88450a006bb669e4def8dab866e56baad9/8/jdk/ubuntu/Dockerfile.openj9.releases.full
-FROM ubuntu:20.04
+FROM ubuntu:18.04
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
