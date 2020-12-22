@@ -1,5 +1,5 @@
 # ref: https://github.com/AdoptOpenJDK/openjdk-docker/blob/9b88ff88450a006bb669e4def8dab866e56baad9/8/jdk/ubuntu/Dockerfile.openj9.releases.full
-FROM ubuntu:18.04
+FROM debian:buster
 
 ENV LANG='en_US.UTF-8' LANGUAGE='en_US:en' LC_ALL='en_US.UTF-8'
 
@@ -143,6 +143,6 @@ RUN apt-get update; \
 
 # Add mirror source
 RUN cp /etc/apt/sources.list /etc/apt/sources.list.bak; \
-    sed -i 's http://.*.ubuntu.com http://mirrors.aliyun.com g' /etc/apt/sources.list
+    sed -i 's http://.*.debian.org http://mirrors.aliyun.com g' /etc/apt/sources.list
 
 ENTRYPOINT ["tini", "--"]
